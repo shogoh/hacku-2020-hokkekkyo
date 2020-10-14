@@ -71,8 +71,10 @@
 }
  .menu {
 	 position: absolute;
+	 z-index: 2;
 	 left: 5%;
-	 margin-left: -80px;
+	 margin-left: -70px;
+	 margin-top: 7em;
 	 padding-top: 20px;
 	 padding-left: 80px;
 	 width: 100%;
@@ -131,4 +133,17 @@
 	 transition-duration: 490ms;
 	 transform: translate3d(440px, 0, 0);
 }
- 
+.fa {
+  margin-top: 7px;
+}
+.map-parent {
+  position: relative;
+}
+#map {
+  position: absolute;
+  z-index: -1;
+}
+
+.memu-parent {
+  position: relative;
+}

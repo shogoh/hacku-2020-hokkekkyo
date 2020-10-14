@@ -5,7 +5,3 @@ function previewImage (obj) {
 	});
 	fileReader.readAsDataURL(obj.files[0]);
 }
-
-function pop_success() {
-	document.
-}
