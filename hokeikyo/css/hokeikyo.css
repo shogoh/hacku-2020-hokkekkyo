@@ -1,0 +1,98 @@
+@charset "utf-8";
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #cccccc;
+  color: #333333;
+  font-size: 15px;
+  line-height: 2;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+  margin-top: 0;
+}
+header{
+  padding: 0;
+  background-color: aqua;
+  width: 960px;
+  height: 400px;
+  margin: 0 auto;
+}
+img{
+  vertical-align: bottom;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: #3583aa;
+  text-decoration: none;
+}
+a:visited{
+  color: #788d98;
+}
+.top{
+  float: left;
+  width: 480px;
+  font-size: 75px;
+  margin-top: 50px;
+}
+.status{
+  float: right;
+  width: 480px;
+  height: 200px;
+  font-size: 35px;
+  margin-top: 50px;
+}
+.top img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 50 50 auto auto;
+}
+.status img{
+  width: 80px;
+  height: 80px;
+}
+.top li{
+  float: left;
+  margin: 0 20px;
+  list-style: none;
+}
+.status li{
+  float: left;
+  margin: 0 20px;
+  list-style: none;
+}
+.up-list img{
+  width: 420px;
+  height: 350px;
+}
+.status ul{
+  margin-top: 100px;
+}
+.coment p{
+  font-size: 30px;
+  margin: 0px 90px;
+}
+.content{
+  width: 960px;
+  height: auto;
+}
+.up-list li{
+  list-style: none;
+  float: left;
+  margin: 0 40px 15px 0px;
+}
+.up-list li:nth-child(2n-1){
+  margin-left: 40px;
+}
+.up-list{
+  width: 960px;
+}
+@media screen and (max-width:600px){
+  /*画面サイズが600px以下の場合に適用*/
+}
