@@ -71,7 +71,7 @@
 }
  .menu {
 	 position: absolute;
-	 z-index: 2;
+	 z-index: 1000;
 	 left: 5%;
 	 margin-left: -70px;
 	 margin-top: 7em;
@@ -140,10 +140,20 @@
   position: relative;
 }
 #map {
-  position: absolute;
-  z-index: -1;
+	position: absolute;
+	/* z-indexをいじるとmapをさわれなくなる */
+  z-index: auto;
 }
 
 .memu-parent {
   position: relative;
+}
+
+.bird-parent {
+	position: relative;
+}
+.bird {
+	float: right;
+	position: absolute;
+	z-index: 1000;
 }
