@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <!-- スマホandPCに対応させる -->
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- Twitterカードを定義 -->
+  <meta property="og:image" content="https://saruwakakun.com/images/example.png"/>
   <title>歩景郷 ~Hokkekkyo~</title>
 
   <link rel="stylesheet" href="../css/main.css" />
@@ -24,16 +26,18 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">共有</h5>
+          <h5 class="modal-title" id="exampleModalLabel">共有してヒントをもらおう！！</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
+          スマホRPGは今こんなのをやってるよ！<br>今使ってるジョブはこれ！
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-          <button type="button" class="btn btn-primary">共有する</button>
+          <!-- <button type="button" class="btn btn-primary"> <a class="twitter-share-button share-button" href="https://twitter.com/intent/tweet?text=スマホRPGは今こんなのをやってるよ！今使ってるジョブはこれ！" data-size="large">共有する</a></button> -->
+          <button class="btn btn-primary" onclick="window.alert('投稿しました')" data-dismiss="modal">共有する</button>
         </div>
       </div>
     </div>
