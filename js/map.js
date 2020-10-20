@@ -8,6 +8,10 @@ new L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
   maxZoom: 18
 }).addTo(mymap)
 
+//オープンストリートマップを使用（デフォルトは地理院地図）
+// let osm = L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
+//     {attribution: "<a href='http://osm.org/copyright' target='_blank'>OpenStreetMap</a> contributors"});
+// osm.addTo(mymap);
 
 let marker_meijo = L.marker([35.1356448, 136.9760683]).addTo(mymap);
 marker_meijo.bindPopup("<p>名城大学</p>")
@@ -15,17 +19,8 @@ marker_meijo.bindPopup("<p>名城大学</p>")
 
 // 現在の位置情報
 
-// Geolocation APIに対応しているか
-if( navigator.geolocation )
-{
-  // 現在位置を取得できる場合の処理
-  alert( "あなたの端末では、現在位置を取得することができます。" ) ;
-}
-
-// Geolocation APIに対応していない
-else
-{
-  // 現在位置を取得できない場合の処理
+// Geolocation APIに対応していない場合にアラートを出す
+if(!navigator.geolocation ){
   alert( "あなたの端末では、現在位置を取得できません。" ) ;
 }
 function calc_euclid_dist(lat1, lon1, lat2, lon2, mode=true) {
@@ -102,3 +97,10 @@ var optionObj = {
 
 navigator.geolocation.getCurrentPosition(successFunc , errorFunc, optionObj);
 
+
+function changeTxt(str) {
+  
+
+  // ヒントエリアの文字を変更
+  document.getElementById('hintText').value = str;
+}
