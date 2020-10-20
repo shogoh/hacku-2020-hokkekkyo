@@ -26,14 +26,7 @@ function copyToClipboard() {
     alert("コピーできました！ : " + copyTarget.value);
 }
 
-$(function(){
-//appends an "active" class to .popup and .popup-content when the "Open" button is clicked
-$(".open").on("click", function a(){
-  $(".popup-overlay, .popup-content").addClass("active");
-});
-
-//removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
-$(".close, .popup-overlay").on("click", function(){
-  $(".popup-overlay, .popup-content").removeClass("active");
-});
-});
+function over_write(id,str) {
+  
+  document.getElementById(id).value = str;
+}
