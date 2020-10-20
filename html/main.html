@@ -20,26 +20,31 @@
 </head>
 <body>
   <main>
-    <div class="bird-parent">
-      <img class="bird" src="../images/bird.png">
-    </div>
-    <div class="map-parent">
-      <div id="map"></div>
+    <div class="content bird-parent">
+        <div class="row bird">
+          <div class="col-8" ><textarea class="hintArea" value='hogehuga' id="hintText" readonly>ホ〜ホケキョ</textarea></div>
+          <div class="col-4"><button class="image" data-toggle="modal" data-target="#exampleModal" onclick="over_write('hintText','距離：XXm\n方角：ホクホク東')"><img src="../images/bird.png" style="height: 100px;width: 100px;"></button></div>
+        </div>
+      </div>
     </div>
     <div class="menu-parent">
       <nav class="menu">
-        <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
+        <input type="checkbox" href="#start-page" class="menu-open" name="menu-open" id="menu-open"/>
         <label class="menu-open-button" for="menu-open">
           <span class="hamburger hamburger-1"></span>
           <span class="hamburger hamburger-2"></span>
           <span class="hamburger hamburger-3"></span>
         </label>
-        <a href="#" class="menu-item"> <i class="fa fa-globe"></i> </a>
-        <a href="#" class="menu-item"> <i class="fa fa-list-ol"></i> </a>
-        <a href="#" class="menu-item"> <i class="fa fa-user"></i> </a>
-        <a href="#" class="menu-item"> <i class="fa fa-camera"></i> </a>
+        <a href="#start-page" class="menu-item"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+        <a href="../歩景郷/photoranking.html" class="menu-item"> <i class="fa fa-list-ol"></i> </a>
+        <a href="../hokeikyo/mypage.html" class="menu-item"> <i class="fa fa-user"></i> </a>
+        <a href="post.html" class="menu-item"> <i class="fa fa-camera"></i> </a>
       </nav>
     </div>
+    <div class="map-parent">
+      <div id="map"></div>
+    </div>
+
   </main>
   <!-- filters -->
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
