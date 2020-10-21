@@ -37,7 +37,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
           <!-- <button type="button" class="btn btn-primary"> <a class="twitter-share-button share-button" href="https://twitter.com/intent/tweet?text=スマホRPGは今こんなのをやってるよ！今使ってるジョブはこれ！" data-size="large">共有する</a></button> -->
-          <button class="btn btn-primary" onclick="window.alert('投稿しました')" data-dismiss="modal">共有する</button>
+          <button class="btn btn-primary" onclick="over_write('hintText','距離：XXm\n方角：ホクホク東')" data-dismiss="modal">共有する</button>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
     <div class="content bird-parent">
         <div class="row bird">
           <div class="col-8" ><textarea class="hintArea" value='hogehuga' id="hintText" readonly>ホ〜ホケキョ</textarea></div>
-          <div class="col-4"><button class="image" data-toggle="modal" data-target="#exampleModal" onclick="over_write('hintText','距離：XXm\n方角：ホクホク東')"><img src="../images/bird.png" style="height: 100px;width: 100px;"></button></div>
+          <div class="col-4"><button class="image" data-toggle="modal" data-target="#exampleModal" ><img src="../picture/bird_uguisu.png" style="height: 100px;width: 100px;"></button></div>
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@
 
   </main>
   <!-- filters -->
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
       <filter id="shadowed-goo">
         <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
@@ -87,7 +87,7 @@
         <feComposite in2="goo" in="SourceGraphic" result="mix" />
       </filter>
     </defs>
-  </svg>
+  </svg> -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
