@@ -16,10 +16,11 @@ main {
   margin: 10px;
   padding: 10px;
 }
-img #preview {
+#preview {
   width: 300px;
   height: 300px;
 }
+
 #upload-button {
   position       : relative;            /* 親要素が基点       */
   margin         : left;                /* 中央寄せ           */

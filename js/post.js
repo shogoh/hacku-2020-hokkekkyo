@@ -5,7 +5,8 @@ function previewImage (obj) {
 	});
 	fileReader.readAsDataURL(obj.files[0]);
 
-	$("#preview").fileExif(function(exif) {
+	$("#upload-picture-button").fileExif(function(exif) {
+		document.getElementById("longitude").value = "hoge";
 		if (!exif) {
 			console.log("exif情報なし");
 			return;
@@ -16,7 +17,10 @@ function previewImage (obj) {
 		}
 		var lat = exif.GPSLatitude[0]  + (exif.GPSLatitude[1] / 60)  + (exif.GPSLatitude[2] / 3600);
 		var lng = exif.GPSLongitude[0] + (exif.GPSLongitude[1] / 60) + (exif.GPSLongitude[2] / 3600);
-		console.log({lat,lng}); // google maps とかで使える形式
+		// console.log({lat,lng}); // google maps とかで使える形式
+
+		document.getElementsById("longitude").value = lng;
+		document.getElementsById("latitude").value = lat;
 	});
 	
 }

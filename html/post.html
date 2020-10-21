@@ -25,7 +25,7 @@
       </div>
     </div>
     <div>
-      <input type="file" name="upload-picture" onchange="previewImage(this)">
+      <input type="file" id="upload-picture-button" name="upload-picture" onchange="previewImage(this)">
       <img id="preview" src="">
     </div>
     <div class="input-info">
@@ -40,7 +40,8 @@
       <label for="input-shop-name">お店の名前</label><br>
       <input type="text" class="textArea" name="shop-name" id="input-shop-name">
     </div>
-
+    <input type="hidden" id="longitude" name="longitude" value="">
+    <input type="hidden" id="latitude" name="latitude" value="">
   </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
