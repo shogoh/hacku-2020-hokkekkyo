@@ -3,9 +3,10 @@
 let mymap=L.map("map")
 mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
 
-new L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
+new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
   {
-  attribution: '&copy; <a href="https://maps.gsi.go.jp/development/ichiran.html#std">国土地理院</a>',
+    //オープンストリートマップをデフォルトとして使用
+  attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a>',
   maxZoom: 18
 }).addTo(mymap)
 
@@ -13,7 +14,6 @@ new L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
 // let osm = L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
 //     {attribution: "<a href='http://osm.org/copyright' target='_blank'>OpenStreetMap</a> contributors"});
 // osm.addTo(mymap);
-
 
 
 let watch_id;// イベントハンドラid,
