@@ -1,14 +1,16 @@
-@chareset "utf-8";
+
 /*共通部分---*/
 
 html {
     font-size: 100%;
+    background-color: bisque;
 }
 body{
     font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
     line-height: 1.7;
     color: #432;
 }
+
 a {
     text-decoration: none;
   }
@@ -236,7 +238,7 @@ div a {display:inline-block;}
   text-align: center;
   top: 0;}
 
-#social-icon i:before { padding 0; line-height: 50px; }
+#social-icon i:before { padding: 0; line-height: 50px; }
 #social-icon a:hover i { background: #bcaf68; }
 #social-icon .fa-sun { background: #eaf6fd; }
 #social-icon .fa-moon{ background: #3b5998; }
