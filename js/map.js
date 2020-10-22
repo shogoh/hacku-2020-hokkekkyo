@@ -181,6 +181,10 @@ function successFunc (pos) {
 // ヒントとなる目的地までの距離,方角を算出
 function get_hint() {
   if (confirm("投稿しますか？")) {
+    if (now_lat == null || now_lon == null){
+      alert("位置情報がありません。 \n位置情報をオンにしてください");
+      return;
+    }
     // ヒントを与える
     calc_hint();
 
