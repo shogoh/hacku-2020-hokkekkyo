@@ -2,18 +2,15 @@
 
 /* ウィンドウの背景色 */
 html {
-  background-color: white;
+  background-color: #fffae0;
 }
-header {
-  background-color: aqua;
+#uploadForm {
+  background-color: #fffae0;
 }
 
-main {
-  background-color: aquamarine;
-}
 .input-info {
-  background-color: beige;
-  margin: 10px;
+  /* background-color: beige; */
+  margin: 10px 10px 0 10px;
   padding: 10px;
 }
 #preview {
@@ -77,8 +74,8 @@ main {
 .sample1Area #sample1off + label {
   left           : 50%;                 /* 左端を中央に変更   */
   border-radius  : 0 6px 6px 0;         /* 角丸(右側の上下)   */
-  background     : #eee;                /* 背景               */
-  color          : #666;                /* 文字色             */
+  background     : #eee;              /* 背景               */
+  color          : #666;              /* 文字色             */
   border-left    : none;                /* 枠線の左側を消す   */
 }
  

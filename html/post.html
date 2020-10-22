@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-  <form id="uploadForm" action="main.html" method="get">
+  <!-- 入力フォーム -->
+  <form id="uploadForm" action="../hokeikyo/mypage.html" method="get">
     <div class="container">
       <div class="row">
         <div class="col-8">
@@ -26,7 +26,7 @@
     </div>
     <div>
       <input type="file" id="upload-picture-button" name="upload-picture" onchange="previewImage(this)">
-      <img id="preview" src="">
+      <img id="preview">
     </div>
     <div class="input-info">
       <label for="input-comment">コメント</label><br>
@@ -40,9 +40,11 @@
       <label for="input-shop-name">お店の名前</label><br>
       <input type="text" class="textArea" name="shop-name" id="input-shop-name">
     </div>
+    <!-- 写真の緯度経度を送信 -->
     <input type="hidden" id="longitude" name="longitude" value="">
     <input type="hidden" id="latitude" name="latitude" value="">
   </form>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <script src="../js/jquery.exif.js"></script>
