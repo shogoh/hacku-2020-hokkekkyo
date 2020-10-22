@@ -1,1 +1,2 @@
-<?php include_once("main.html"); ?>
+<!-- include_once("最初に読み込むページを指定") -->
+<?php include_once("html/main.html"); ?>
