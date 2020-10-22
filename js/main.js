@@ -26,9 +26,3 @@ function copyToClipboard() {
     alert("コピーできました！ : " + copyTarget.value);
 }
 
-function over_write(id,str) {
-  if(window.confirm('投稿しますか？')){
-    window.alert('投稿しました！')
-    document.getElementById(id).value = str;
-  }
-}
