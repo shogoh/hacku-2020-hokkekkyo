@@ -10,13 +10,13 @@
 </head>
 <body>
 
-  <form id="uploadForm" action="#" method="post">
+  <form id="uploadForm" action="main.html" method="get">
     <div class="container">
       <div class="row">
         <div class="col-8">
           <div class="sample1Area" id="makeImg">
-            <input type="radio" name="sample1radio" id="sample1on" checked=""><label for="sample1on"><i class="fa fa-sun-o" aria-hidden="true"></i></label>
-            <input type="radio" name="sample1radio" id="sample1off" checked=""><label for="sample1off"><i class="fa fa-moon-o" aria-hidden="true"></i></label>
+            <input type="radio" name="sample1radio" id="sample1on" value="noon" checked=""><label for="sample1on"><i class="fa fa-sun-o" aria-hidden="true"></i></label>
+            <input type="radio" name="sample1radio" id="sample1off" value="night" checked=""><label for="sample1off"><i class="fa fa-moon-o" aria-hidden="true"></i></label>
           </div>
         </div>
         <div class="col-4">
@@ -25,24 +25,28 @@
       </div>
     </div>
     <div>
-      <input type="file" name="upload-picture" onchange="previewImage(this)">
+      <input type="file" id="upload-picture-button" name="upload-picture" onchange="previewImage(this)">
       <img id="preview" src="">
     </div>
-    <div class="input">
-      <p>コメント(例：甘くて美味しいよ！)</p>
-      <input>
+    <div class="input-info">
+      <label for="input-comment">コメント</label><br>
+      <input type="text" class="textArea" name="comment" placeholder="例：甘くて美味しいよ！" id="input-comment">
     </div>
-    <div class="input">
-      <p>タグ付け(例:#いちご #ばなな #かき氷)</p>
-      <input>
+    <div class="input-info" >
+      <label for="input-hashtag">タグ付け</label><br>
+      <input type="text" class="textArea" name="hashtag" placeholder="例：#いちご #かき氷 #映えスポット" id="input-hashtag">
     </div>    
-    <div class="input">
-      <p>お店の名前</p>
-      <input>
+    <div class="input-info">
+      <label for="input-shop-name">お店の名前</label><br>
+      <input type="text" class="textArea" name="shop-name" id="input-shop-name">
     </div>
-
+    <input type="hidden" id="longitude" name="longitude" value="">
+    <input type="hidden" id="latitude" name="latitude" value="">
   </form>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<script src="../js/jquery.exif.js"></script>
+<script src="../bootstrap-4.5.0/dist/js/bootstrap.min.js"></script>
 <script src="../js/post.js"></script>
 </html>
 

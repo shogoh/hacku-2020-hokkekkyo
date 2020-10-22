@@ -11,11 +11,11 @@ body{
 p,h1,h2,h3,h4,h5,h6{
   margin-top: 0;
 }
-header{
+#mypage header{
   padding: 0;
   background-color: aqua;
   width: 960px;
-  height: 400px;
+  height: 550px;
   margin: 0 auto;
 }
 img{
@@ -36,21 +36,22 @@ a:visited{
 }
 .top{
   float: left;
-  width: 480px;
+  width: 250px;
+  height: 250px;
   font-size: 75px;
   margin-top: 50px;
 }
 .status{
   float: right;
-  width: 480px;
-  height: 200px;
+  width: 710px;
+  height: 250px;
   font-size: 35px;
   margin-top: 50px;
 }
 .top img{
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 50 50 auto auto;
 }
 .status img{
@@ -58,9 +59,9 @@ a:visited{
   height: 80px;
 }
 .top li{
-  float: left;
   margin: 0 20px;
   list-style: none;
+  font-size: 60px
 }
 .status li{
   float: left;
@@ -78,6 +79,9 @@ a:visited{
   font-size: 30px;
   margin: 0px 90px;
 }
+.coment{
+  width: 80%;
+}
 .content{
   width: 960px;
   height: auto;
@@ -92,6 +96,46 @@ a:visited{
 }
 .up-list{
   width: 960px;
+}
+#toppage .content img{
+  margin: auto 300px;
+  width: 450px;
+}
+
+.search{
+  background-color: coral;
+  border: 3px solid coral;
+}
+.up{
+  background-color: burlywood;
+  border: 3px solid burlywood;
+}
+#toppage .content{
+  margin-top: 400px;
+}
+a:hover{
+  text-decoration: none;
+}
+#mypage coment p.nomal{
+  word-wrap: break-word;
+}
+#toppage a{
+  color: #ffffff;
+  font-size: 80px;
+  width: 450px;
+  height: 160px;
+  display: block;
+  text-align: center;
+  line-height: 150px;
+  border-radius: 30px;
+  margin: 80px 300px;
+}
+li{
+  list-style: none;  
+}
+#sharelist img{
+  width: 600px;
+  height: auto;
 }
 @media screen and (max-width:600px){
   /*画面サイズが600px以下の場合に適用*/

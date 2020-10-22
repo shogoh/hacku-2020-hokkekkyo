@@ -11,18 +11,20 @@ header {
 main {
   background-color: aquamarine;
 }
-.input {
+.input-info {
   background-color: beige;
   margin: 10px;
   padding: 10px;
 }
-img #preview {
-  max-width: 300px;
+#preview {
+  width: 300px;
+  height: 300px;
 }
+
 #upload-button {
   position       : relative;            /* 親要素が基点       */
   margin         : left;                /* 中央寄せ           */
-  width          : 160px;               /* ボタンの横幅       */
+  width          : 100%;               /* ボタンの横幅       */
   height         : 60px;                /* ボタンの高さ       */
 }
 
@@ -87,4 +89,6 @@ img #preview {
   color          : #ffff00;                /* 文字色             */
   text-shadow    : 1px 1px 1px #333;    /* 文字に影を付ける */
 }
-
+.textArea {
+  width: 100%;
+}
