@@ -55,8 +55,11 @@ a:hover{
   border: 1px solid black;
   padding: 0 0;
 }
-.col .fa {
-  margin: 30px 0;
+.col i {
+  margin: 30px 10px 0 10px;
+}
+.col p {
+  margin: 0 25px 0 25px;
 }
 .usr-name {
   margin: 0 10px;
@@ -88,5 +91,5 @@ a:hover{
 #sharelist img{
   width: 600px;
   height: auto;
+}
 /* sharelist end */
-
