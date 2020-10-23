@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width",initial-scale=1>
   <title>歩景郷 ~Hokkekkyo~</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap">
-  <!-- 最初に読み込むページだけルートディレクトリからの参照にする必要がありそう？-->
-  <!-- <link rel="stylesheet" href="css/startpage.css"> -->
+  <!-- 最初に読み込むタイミングだけディレクトリがおかしくなるので2重で宣言-->
+  <link rel="stylesheet" href="css/startpage.css">
   <link rel="stylesheet" href="hokeikyo/css/startpage.css">
   <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
@@ -35,4 +35,5 @@
 </body>
   <!-- 最初に読み込むページだけルートディレクトリからの参照にする必要がありそう？-->
 <script src="hokeikyo/mypage.js"></script>
+<script src="mypage.js"></script>
 </html>
