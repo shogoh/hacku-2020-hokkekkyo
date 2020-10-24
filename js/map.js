@@ -18,7 +18,9 @@ new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
 
 let watch_id;// イベントハンドラid,
 let dist;// 目的地の位置情報, 
+let now; // 現在地の位置情報
 let cnt = 0;//ヒントを与えた回数
+let tol = 5;//許容誤差(m)
 
 // 目的地の位置をマップに表示（仮）
 dist = L.marker([35.1356448, 136.9760683]).addTo(mymap).bindPopup("<p>名城大学</p>");
@@ -130,6 +132,12 @@ function calc_hint(pos) {
     // window.alert("緯度:" + now_lat + ", 経度:" + now_lon + ",写真の場所までの距離:" + calc_euclid_dist());
     document.getElementById("hintText").textContent += "距離:" + calc_euclid_dist();
   }
+  else if (cnt == 2) {
+    // 3回目は答えを出す
+    L.marker([dist_lat, dist_lon]).addTo(mymap).bindPopup("<p>ゴール</p>");
+    mymap.setView([dist_lat, dist_lon]);
+    document.getElementById("hintText").textContent = "ゴールはここだよ！";
+  }
 
 };
 
@@ -159,11 +167,15 @@ let optionObj = {
 
 // 現在地の更新を行う && ゴール判定
 function successFunc (pos) {
+
+  // 現在地の更新をする前にピンを消す
+  if((now != null)) mymap.removeLayer(now);
+
   now_lat = pos.coords.latitude;　//現在の緯度の更新
   now_lon = pos.coords.longitude; //現在の経度の更新
 
   // リアルタイムの現在の自分の位置をマップに表示
-  L.marker([now_lat, now_lon]).addTo(mymap);
+  now = L.marker([now_lat, now_lon]).addTo(mymap);
   mymap.setView([now_lat, now_lon]);//現在場所、ズームレベル
 
   // 精度を円で表現（ガバすぎるので未設定）
