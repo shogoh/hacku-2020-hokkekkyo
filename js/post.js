@@ -53,9 +53,9 @@ function previewImage (obj) {
 }
 // firebaseに画像のアップロードを行う
 function uploadPic() {
-	var file = document.getElementById("upload-picture-button");
+	var file = document.getElementById("upload-picture-button").files[0];
 	if (document.getElementById("preview").src != ""){
-		picsRef.child('hoge.png').put(file.files[0]);
+		picsRef.child(file.name).put(file);
 		alert("写真を投稿しました！");
 	}
 }
