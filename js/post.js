@@ -55,6 +55,7 @@ function previewImage (obj) {
 function uploadPic() {
 	var file = document.getElementById("upload-picture-button").files[0];
 	if (document.getElementById("preview").src != ""){
+		// ファイル名でそのままfirebaseに保存
 		picsRef.child(file.name).put(file);
 		alert("写真を投稿しました！");
 	}
