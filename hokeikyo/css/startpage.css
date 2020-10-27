@@ -28,7 +28,7 @@ ul{
 
 
 .btn{
-  width: 100%;
+  width: 960px;
 }
 a:visited{
   color: #788d98;
@@ -57,12 +57,12 @@ a:hover{
 #toppage a{
   color: #ffffff;
   font-size: 80px;
-  width: 50%;
+  width: 480px;
   height: 160px;
   display: block;
   text-align: center;
   line-height: 150px;
   border-radius: 30px;
-  margin: 60px 25%;
+  margin: 60px 240px;
   text-decoration: none;
 }
