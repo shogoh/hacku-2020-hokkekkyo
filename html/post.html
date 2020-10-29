@@ -10,7 +10,7 @@
 </head>
 <body>
   <!-- 入力フォーム -->
-  <form id="uploadForm" action="../hokeikyo/mypage.html" method="get">
+  <form id="uploadForm" action="../hokeikyo/mypage.html" method="post">
     <div class="container">
       <div class="row">
         <div class="col-8">
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="col-4">
-          <input id="upload-button" type="submit" value="シェア!">
+          <input id="upload-button" type="submit" value="シェア!" onclick="uploadPic()" disabled>
         </div>
       </div>
     </div>
@@ -44,11 +44,16 @@
     <input type="hidden" id="longitude" name="longitude" value="">
     <input type="hidden" id="latitude" name="latitude" value="">
   </form>
-
-</body>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-<script src="../js/jquery.exif.js"></script>
-<script src="../bootstrap-4.5.0/dist/js/bootstrap.min.js"></script>
-<script src="../js/post.js"></script>
+  </body>
+  <!-- firebaseSDKの追加 -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+  <!-- firebase終わり -->
+  <!-- その他js -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+  <script src="../js/jquery.exif.js"></script>
+  <script src="../bootstrap-4.5.0/dist/js/bootstrap.min.js"></script>
+  <script src="../js/post.js"></script>
 </html>
 

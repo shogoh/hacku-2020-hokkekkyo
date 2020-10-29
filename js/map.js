@@ -1,4 +1,3 @@
-
 /*マップの定義 leafletを使用 */
 let mymap=L.map("map")
 mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
@@ -18,16 +17,22 @@ new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
 
 let watch_id;// イベントハンドラid,
 let dist;// 目的地の位置情報, 
+let now; // 現在地の位置情報
 let cnt = 0;//ヒントを与えた回数
-
-// 目的地の位置をマップに表示（仮）
-dist = L.marker([35.1356448, 136.9760683]).addTo(mymap).bindPopup("<p>名城大学</p>");
-
+let tol = 5;//許容誤差(m)
 let now_lat;　//現在の緯度
 let now_lon; //現在の経度
-let dist_lat = dist._latlng.lat; //目的地の緯度
-let dist_lon = dist._latlng.lng; //目的地の経度
+let dist_lat; //目的地の緯度
+let dist_lon; //目的地の経度
 
+
+// map画面に遷移後、目的地の緯度経度を取得
+window.onload = function(){
+  var data = location.href.split("?")[1];
+  dist_lat = data.split("&")[0].split("=")[1];
+  dist_lon = data.split("&")[1].split("=")[1];
+  // document.getElementById("message").innerHTML = decodeURIComponent(text);
+}
 
   /*2点間距離を算出するプログラム */
 function calc_euclid_dist(mode=true) {
@@ -70,13 +75,6 @@ function calc_euclid_dist(mode=true) {
   // 小数点以下を切り捨てる
   dist = dist.toFixed();
 
-  if (dist >= 1000) {
-    dist /= 1000;
-    dist = dist + "km";
-  }
-  else {
-    dist = dist + "m";
-  }
   return dist;
   }
 
@@ -128,7 +126,13 @@ function calc_hint(pos) {
   else if (cnt == 1){
     // 現在地から目的地までの距離を算出（2回目のヒント）
     // window.alert("緯度:" + now_lat + ", 経度:" + now_lon + ",写真の場所までの距離:" + calc_euclid_dist());
-    document.getElementById("hintText").textContent += "距離:" + calc_euclid_dist();
+    document.getElementById("hintText").textContent += "距離:" + calc_euclid_dist() + "m";
+  }
+  else if (cnt == 2) {
+    // 3回目は答えを出す
+    L.marker([dist_lat, dist_lon]).addTo(mymap).bindPopup("<p>ゴール</p>");
+    mymap.setView([dist_lat, dist_lon]);
+    document.getElementById("hintText").textContent = "ゴールはここだよ！";
   }
 
 };
@@ -159,23 +163,32 @@ let optionObj = {
 
 // 現在地の更新を行う && ゴール判定
 function successFunc (pos) {
+
+  // 現在地の更新をする前にピンを消す
+  if((now != null)) mymap.removeLayer(now);
+
   now_lat = pos.coords.latitude;　//現在の緯度の更新
   now_lon = pos.coords.longitude; //現在の経度の更新
 
   // リアルタイムの現在の自分の位置をマップに表示
-  L.marker([now_lat, now_lon]).addTo(mymap);
+  now = L.marker([now_lat, now_lon]).addTo(mymap);
   mymap.setView([now_lat, now_lon]);//現在場所、ズームレベル
 
   // 精度を円で表現（ガバすぎるので未設定）
   // var radius = pos.coords.accuracy;
   // L.circle([now_lat, now_lon], radius).addTo(mymap);
-
-
-  // 位置情報が現在地==目的地であるならばゴールと判定
-  if (now_lat == dist_lat && now_lon == dist_lon){
+ 
+//  目的地誤差5m以内ならゴール判定とする。
+  if(calc_euclid_dist() <= tol){
     alert('Congratulations!! \n 写真の場所を見つけたよ！');
     navigator.geolocation.clearWatch(watch_id);
   }
+
+  // 位置情報が現在地==目的地であるならばゴールと判定
+  // if (now_lat == dist_lat && now_lon == dist_lon){
+  //   alert('Congratulations!! \n 写真の場所を見つけたよ！');
+  //   navigator.geolocation.clearWatch(watch_id);
+  // }
 }
 
 // ヒントとなる目的地までの距離,方角を算出
@@ -185,6 +198,7 @@ function get_hint() {
       alert("位置情報がありません。 \n位置情報をオンにしてください");
       return;
     }
+    alert("共有しました！")
     // ヒントを与える
     calc_hint();
 

@@ -7,12 +7,40 @@
   <!--CSS-->
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <!-- <link href="https://fonts.googleapis.com/css?family=Plilosopher" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../bootstrap-4.5.0/dist/css/bootstrap.min.css" />
     <link href="CSS/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/menu.css">
 
   </head>
 
   <body class="yoru">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">この写真が撮られた場所へ向おう！</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="../images/menu2.jpg">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">一覧に戻る</button>
+            <!-- <button type="button" class="btn btn-primary"> <a class="twitter-share-button share-button" href="https://twitter.com/intent/tweet?text=スマホRPGは今こんなのをやってるよ！今使ってるジョブはこれ！" data-size="large">共有する</a></button> -->
+            <form action="../html/main.html" method="GET" name="choicePic">
+              <input type="submit" class="btn btn-primary" value="ここへ行く"></button>
+              <input id="lat" type="hidden" name="latitude" value="35.1356448">
+              <input id="lon" type="hidden" name="longitude" value="136.9760683">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="menu-parent">
       <nav class="menu">
         <input type="checkbox" href="#start-page" class="menu-open" name="menu-open" id="menu-open"/>
@@ -50,8 +78,8 @@
 
     <div class="photo">
     <section id="photos">
-      <a href="../html/main.html"><img src="../images/menu1.jpg" alt=""></a>
-      <img src="../images/menu2.jpg" alt="">
+      <img src="../images/menu2.jpg" data-toggle="modal" data-target="#exampleModal" alt="">
+      <img src="../images/menu1x.jpg" alt="">
       <img src="../images/menu3.jpg" alt="">
       <img src="../images/menu4.jpg" alt="">
       <img src="../images/menu5.jpg" alt="">
@@ -78,5 +106,7 @@
     </section>
    </div>
  </body>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+ <script src="../bootstrap-4.5.0/dist/js/bootstrap.min.js"></script>
  <script src="https://kit.fontawesome.com/5a571ece17.js" crossorigin="anonymous"></script>
 </html>

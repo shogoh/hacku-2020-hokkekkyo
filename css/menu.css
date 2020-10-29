@@ -68,7 +68,6 @@
   text-align: left;
 }
 .menu-item:hover {
-  background: white;
   color: #00bcd4;
 }
 .menu-item:nth-child(3) {
@@ -118,6 +117,9 @@
   transform: translate3d(0px, -60px, 0);
 }
 .menu-item .fa {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  margin: 10px 10px 10px 10px;
 }
