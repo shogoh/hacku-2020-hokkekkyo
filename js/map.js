@@ -185,9 +185,9 @@ function successFunc (pos) {
     // ゴールから遠かったらボタンを隠す
     if ((obj = document.getElementById("find-dist").style.visibility) == "visible"){
       obj = "hidden";
+    }
   }
-
-  // 位置情報が現在地==目的地であるならばゴールと判定
+    // 位置情報が現在地==目的地であるならばゴールと判定
   // if (now_lat == dist_lat && now_lon == dist_lon){
   //   alert('Congratulations!! \n 写真の場所を見つけたよ！');
   //   navigator.geolocation.clearWatch(watch_id);
@@ -216,4 +216,4 @@ function get_hint() {
 }
 
 // 定期的にユーザの位置情報を取得　idには登録されたハンドラを識別するIDが入る
-watch_id = navigator.geolocation.watchPosition(successFunc, errorFunc, optionObj);
+watch_id = navigator.geolocation.watchPosition(successFunc, errorFunc, optionObj)
