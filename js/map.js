@@ -174,14 +174,17 @@ function successFunc (pos) {
   now = L.marker([now_lat, now_lon]).addTo(mymap);
   mymap.setView([now_lat, now_lon]);//現在場所、ズームレベル
 
-  // 精度を円で表現（ガバすぎるので未設定）
-  // var radius = pos.coords.accuracy;
-  // L.circle([now_lat, now_lon], radius).addTo(mymap);
- 
 //  目的地誤差5m以内ならゴール判定とする。
   if(calc_euclid_dist() <= tol){
-    alert('Congratulations!! \n 写真の場所を見つけたよ！');
-    navigator.geolocation.clearWatch(watch_id);
+    // ゴール判定ができるようになったらボタンを転倒させる
+    if ((obj = document.getElementById("find-dist").style.visibility) == "hidden"){
+      obj = "visible";
+    }
+  }
+  else {
+    // ゴールから遠かったらボタンを隠す
+    if ((obj = document.getElementById("find-dist").style.visibility) == "visible"){
+      obj = "hidden";
   }
 
   // 位置情報が現在地==目的地であるならばゴールと判定
@@ -189,6 +192,11 @@ function successFunc (pos) {
   //   alert('Congratulations!! \n 写真の場所を見つけたよ！');
   //   navigator.geolocation.clearWatch(watch_id);
   // }
+}
+
+// 発見ボタンが押された後、ウォッチを終了
+function findIt() {
+  navigator.geolocation.clearWatch(watch_id);
 }
 
 // ヒントとなる目的地までの距離,方角を算出

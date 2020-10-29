@@ -1,3 +1,25 @@
+/*マップの定義 位置情報が欠損してる時使用 */
+let mymap=L.map("map")
+mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
+
+new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
+  {
+    //オープンストリートマップをデフォルトとして使用
+  attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a>',
+  maxZoom: 18
+}).addTo(mymap)
+
+var marker = "";
+mymap.on('click', function(e) {
+	if(marker != "")mymap.removeLayer(marker);
+	marker = L.marker(e.latlng).addTo(mymap);
+	document.getElementById("latitude").value = e.latlng.lat;
+	document.getElementById("longitude").value = e.latlng.lng;
+});
+
+/*マップ定義終了*/
+
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
 	apiKey: "AIzaSyDGwSFtEvZ-nto4UKDmtTSd_NOX9oZ_X0s",
@@ -20,6 +42,17 @@ var storageRef = storage.ref();
 // pictures下を参照
 var picsRef = storageRef.child('pictures');
 
+var photo1_ref = picsRef.child("photo1.jpg").getDownloadURL().then(function(url) {
+  // Or inserted into an <img> element:
+	document.getElementById("preview").src = url;
+}).catch(function(error) {
+  // Handle any errors
+});
+
+// モーダルを開く
+function openModal() {
+	document.getElementById('open-modal').click();
+}
 
 // 写真のプレビューを表示
 function previewImage (obj) {
@@ -30,15 +63,13 @@ function previewImage (obj) {
 	fileReader.readAsDataURL(obj.files[0]);
 
 	$("#upload-picture-button").fileExif(function(exif) {
-		document.getElementById("longitude").value = "hoge";
-		if (!exif) {
-			console.log("exif情報なし");
-			return;
-		}
-		if (!exif.GPSLatitude) {
+		if (!exif || !exif.GPSLatitude) {
 			console.log("GPS情報なし");
+			// モーダルを開く
+			openModal();
 			return;
 		}
+
 		var lat = exif.GPSLatitude[0]  + (exif.GPSLatitude[1] / 60)  + (exif.GPSLatitude[2] / 3600);
 		var lng = exif.GPSLongitude[0] + (exif.GPSLongitude[1] / 60) + (exif.GPSLongitude[2] / 3600);
 		// console.log({lat,lng}); // google maps とかで使える形式
@@ -54,11 +85,9 @@ function previewImage (obj) {
 // firebaseに画像のアップロードを行う
 function uploadPic() {
 	var file = document.getElementById("upload-picture-button").files[0];
-	if (document.getElementById("preview").src != ""){
-		// ファイル名でそのままfirebaseに保存
-		picsRef.child(file.name).put(file);
-		alert("写真を投稿しました！");
-	}
+	// ファイル名でそのままfirebaseに保存
+	picsRef.child(file.name).put(file);
+	alert("写真を投稿しました！");
 }
 
 

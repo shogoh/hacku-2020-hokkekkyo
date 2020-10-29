@@ -89,3 +89,16 @@ html {
 .textArea {
   width: 100%;
 }
+
+.map-parent {
+	/* position: relative; */
+	width: 100%;
+	height: 300px;
+}
+#map {
+	/* position: absolute; */
+	/* z-indexをいじるとmapをさわれなくなる */
+	/* z-index: auto; */
+	width: 100%;
+	height: 100%;
+}

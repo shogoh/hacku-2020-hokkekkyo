@@ -1,0 +1,13 @@
+html {
+  background-color: #fffae0;
+}
+h1, h2, h3, img{
+  width: 100%;
+  text-align: center;
+}
+button {
+  position: absolute;
+  left:10%;
+  width: 80%;
+  height: 50px;
+}
