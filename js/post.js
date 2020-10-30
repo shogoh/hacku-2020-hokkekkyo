@@ -1,24 +1,3 @@
-/*マップの定義 位置情報が欠損してる時使用 */
-let mymap=L.map("map")
-mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
-
-new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
-  {
-    //オープンストリートマップをデフォルトとして使用
-  attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a>',
-  maxZoom: 18
-}).addTo(mymap)
-
-var marker = "";
-mymap.on('click', function(e) {
-	if(marker != "")mymap.removeLayer(marker);
-	marker = L.marker(e.latlng).addTo(mymap);
-	document.getElementById("latitude").value = e.latlng.lat;
-	document.getElementById("longitude").value = e.latlng.lng;
-});
-
-/*マップ定義終了*/
-
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -49,10 +28,33 @@ var picsRef = storageRef.child('pictures');
 //   // Handle any errors
 // });
 
+var marker = "";//位置情報を指定するためのマーカー
+let mymap=L.map("map");//マップの大域変数宣言
+
 // モーダルを開く
 function openModal() {
 	document.getElementById('open-modal').click();
+
+	// モーダルが開ききった後にマップを定義
+	$("#exampleModal").on("shown.bs.modal", function () {
+		// #edit-mapにmapを表示
+		mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
+		new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
+			{
+				//オープンストリートマップをデフォルトとして使用
+			attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a>',
+			maxZoom: 18
+		}).addTo(mymap)
+});
 }
+// クリックで位置情報を取得
+mymap.on('click', function(e) {
+	if(marker != "")mymap.removeLayer(marker);
+	marker = L.marker(e.latlng).addTo(mymap);
+	document.getElementById("latitude").value = e.latlng.lat;
+	document.getElementById("longitude").value = e.latlng.lng;
+});
+/*マップ定義終了*/
 
 // 写真のプレビューを表示
 function previewImage (obj) {
