@@ -42,12 +42,12 @@ var storageRef = storage.ref();
 // pictures下を参照
 var picsRef = storageRef.child('pictures');
 
-var photo1_ref = picsRef.child("photo1.jpg").getDownloadURL().then(function(url) {
-  // Or inserted into an <img> element:
-	document.getElementById("preview").src = url;
-}).catch(function(error) {
-  // Handle any errors
-});
+// var photo1_ref = picsRef.child("photo1.jpg").getDownloadURL().then(function(url) {
+//   // Or inserted into an <img> element:
+// 	document.getElementById("preview").src = url;
+// }).catch(function(error) {
+//   // Handle any errors
+// });
 
 // モーダルを開く
 function openModal() {

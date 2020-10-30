@@ -177,14 +177,14 @@ function successFunc (pos) {
 //  目的地誤差5m以内ならゴール判定とする。
   if(calc_euclid_dist() <= tol){
     // ゴール判定ができるようになったらボタンを転倒させる
-    if ((obj = document.getElementById("find-dist").style.visibility) == "hidden"){
-      obj = "visible";
+    if (document.getElementById("find-dist").style.visibility == "hidden"){
+      document.getElementById("find-dist").style.visibility = "visible";
     }
   }
   else {
     // ゴールから遠かったらボタンを隠す
-    if ((obj = document.getElementById("find-dist").style.visibility) == "visible"){
-      obj = "hidden";
+    if (document.getElementById("find-dist").style.visibility == "visible"){
+      document.getElementById("find-dist").style.visibility = "hidden";
     }
   }
     // 位置情報が現在地==目的地であるならばゴールと判定
@@ -216,4 +216,4 @@ function get_hint() {
 }
 
 // 定期的にユーザの位置情報を取得　idには登録されたハンドラを識別するIDが入る
-watch_id = navigator.geolocation.watchPosition(successFunc, errorFunc, optionObj)
+watch_id = navigator.geolocation.watchPosition(successFunc, errorFunc, optionObj);
