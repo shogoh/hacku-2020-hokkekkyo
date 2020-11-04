@@ -2,10 +2,10 @@
 let mymap=L.map("map")
 mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
 
-new L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png',
+new L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png',
   {
     //オープンストリートマップをデフォルトとして使用
-  attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a>',
+  attribution: '&copy; <a href="https://osm.org/copyright" target="_blank">OpenStreetMap</a>',
   maxZoom: 18
 }).addTo(mymap)
 
