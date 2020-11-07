@@ -24,7 +24,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <img src="../images/meijo.jpg">
+            <img  id="preview" src="">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">一覧に戻る</button>
@@ -75,7 +75,7 @@
 
     <div class="photo">
     <section id="photos">
-      <img src="../images/meijo.jpg" data-toggle="modal" data-target="#exampleModal" alt="">
+      <img id="demo-img" src="" data-toggle="modal" data-target="#exampleModal" alt="">
       <img src="../images/menu1.jpg" alt="">
       <img src="../images/menu3.jpg" alt="">
       <img src="../images/menu4.jpg" alt="">
@@ -97,8 +97,15 @@
     </section>
    </div>
  </body>
+   <!-- firebaseSDKの追加 -->
+   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+   <!-- for using storage -->
+   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-<script src="../bootstrap-4.5.0/dist/js/bootstrap.min.js"></script>
+ <script src="../bootstrap-4.5.0/dist/js/bootstrap.min.js"></script>
  <script src="https://kit.fontawesome.com/5a571ece17.js" crossorigin="anonymous"></script>
  <script src="sendData.js"></script>
+ <script src="getImage.js"></script>
 </html>
