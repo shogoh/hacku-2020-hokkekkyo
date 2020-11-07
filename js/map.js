@@ -32,9 +32,8 @@ window.onload = function(){
   dist_lat = data.split("&")[0].split("=")[1];
   dist_lon = data.split("&")[1].split("=")[1];
 
-  // URL内の緯度経度情報を削除
-  location.href = location.href.split("?")[0];
-  // document.getElementById("message").innerHTML = decodeURIComponent(text);
+  // URL内の緯度経度情報を削除(削除するとdist_latの参照元が消えるのかエラーになる) 
+  // location.href = location.href.split("?")[0];
 }
 
   /*2点間距離を算出するプログラム */
