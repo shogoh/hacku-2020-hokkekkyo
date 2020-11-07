@@ -5,7 +5,7 @@ var firebaseConfig = {
 	authDomain: "hokkekkyo.firebaseapp.com",
 	databaseURL: "https://hokkekkyo.firebaseio.com",
 	projectId: "hokkekkyo",
-	storageBucket: "hokkekkyo.appspot.com",
+	storageBucket: "gs://hokkekkyo.appspot.com",
 	messagingSenderId: "359136951142",
 	appId: "1:359136951142:web:7b7649f5106379bd8366a7",
 	measurementId: "G-GL59KRQMHV"
@@ -17,16 +17,9 @@ firebase.analytics();
 // cloud storageのルートディレクトリを参照
 var storage = firebase.storage();
 var storageRef = storage.ref();
-
 // pictures下を参照
 var picsRef = storageRef.child('pictures');
 
-// var photo1_ref = picsRef.child("photo1.jpg").getDownloadURL().then(function(url) {
-//   // Or inserted into an <img> element:
-// 	document.getElementById("preview").src = url;
-// }).catch(function(error) {
-//   // Handle any errors
-// });
 
 var marker = "";//位置情報を指定するためのマーカー
 let mymap=L.map("map");//マップの大域変数宣言
@@ -82,14 +75,25 @@ function previewImage (obj) {
 
 	// submitボタンを押せるようにする
 	document.getElementById("upload-button").disabled = false;
-	
 }
 // firebaseに画像のアップロードを行う
 function uploadPic() {
 	var file = document.getElementById("upload-picture-button").files[0];
-	// ファイル名でそのままfirebaseに保存
-	picsRef.child(file.name).put(file);
-	alert("写真を投稿しました！");
+	var latitude = document.getElementById("latitude").value;
+	var longitude = document.getElementById("longitude").value;
+	// ファイル名でそのまま + 位置情報を付与してfirebaseに保存
+	var metadata = {
+		customMetadata: {
+			'latitude':latitude,
+			'longitude':longitude
+		}
+	}
+	picsRef.child(file.name).put(file,metadata).then(function(){
+		// 画像投稿完了後、通知をしてから画面遷移
+		alert("写真を投稿しました！");
+	}).then(function(){
+		location.href = "../hokeikyo/mypage.html";
+	});
 }
 
 

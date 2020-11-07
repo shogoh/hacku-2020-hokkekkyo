@@ -41,7 +41,7 @@
   <!-- モーダルを開く専用のオブジェクト -->
   <input type="hidden" id="open-modal" data-toggle="modal" data-target="#exampleModal"></button>
   <!-- 入力フォーム -->
-  <form id="uploadForm" action="../hokeikyo/mypage.html" method="post" autocomplete="off">
+  <div id="uploadForm" >
     <div class="container">
       <div class="row">
         <div class="col-8">
@@ -74,13 +74,16 @@
     <!-- 写真の緯度経度を送信 -->
     <input type="hidden" id="longitude" name="longitude" value="">
     <input type="hidden" id="latitude" name="latitude" value="">
-  </form>
+  <div>
   </body>
   <!-- firebaseSDKの追加 -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+  <!-- for using storage -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+  <!-- for ysing cloud store -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
   <!-- firebase終わり -->
   <!-- その他js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
