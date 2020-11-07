@@ -31,6 +31,9 @@ window.onload = function(){
   var data = location.href.split("?")[1];
   dist_lat = data.split("&")[0].split("=")[1];
   dist_lon = data.split("&")[1].split("=")[1];
+
+  // URL内の緯度経度情報を削除
+  location.href = location.href.split("?")[0];
   // document.getElementById("message").innerHTML = decodeURIComponent(text);
 }
 
@@ -124,8 +127,9 @@ function calc_hint(pos) {
     document.getElementById("hintText").textContent = "方角:" + calc_direction() + "\n";
   }
   else if (cnt == 1){
-    // 現在地から目的地までの距離を算出（2回目のヒント）
+    // 現在地から目的地までの方角&距離を算出（2回目のヒント）
     // window.alert("緯度:" + now_lat + ", 経度:" + now_lon + ",写真の場所までの距離:" + calc_euclid_dist());
+    document.getElementById("hintText").textContent = "方角:" + calc_direction() + "\n";
     document.getElementById("hintText").textContent += "距離:" + calc_euclid_dist() + "m";
   }
   else if (cnt == 2) {
@@ -154,7 +158,7 @@ function errorFunc( error )
 /*https://developer.mozilla.org/ja/docs/Web/API/PositionOptions:*/
 let optionObj = {
   // 高精度を必要とするか
-  "enableHighAccuracy": false ,
+  "enableHighAccuracy": true,
   // 位置情報取得時間の上限
   "timeout": 8000 ,
   // 一度取得した位置情報の有効期限
