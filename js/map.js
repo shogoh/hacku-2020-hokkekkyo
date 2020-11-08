@@ -2,7 +2,7 @@
 let mymap=L.map("map")
 mymap.setView([35.1356448, 136.9760683], 17);//初期位置、ズームレベル
 
-new L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
   {
     //オープンストリートマップをデフォルトとして使用
   attribution: '&copy; <a href="https://osm.org/copyright" target="_blank">OpenStreetMap</a>',
@@ -218,6 +218,6 @@ function get_hint() {
   }
 }
 
-navigator.geolocation.getCurrentPosition(successFunc, errorFunc, optionObj);
+// navigator.geolocation.getCurrentPosition(successFunc, errorFunc, optionObj);
 // 定期的にユーザの位置情報を取得　idには登録されたハンドラを識別するIDが入る
 watch_id = navigator.geolocation.watchPosition(successFunc, errorFunc, optionObj);
