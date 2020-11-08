@@ -157,7 +157,7 @@ function errorFunc( error )
 /*https://developer.mozilla.org/ja/docs/Web/API/PositionOptions:*/
 let optionObj = {
   // 高精度を必要とするか
-  "enableHighAccuracy": true,
+  "enableHighAccuracy": false,
   // 位置情報取得時間の上限
   "timeout": 8000 ,
   // 一度取得した位置情報の有効期限
