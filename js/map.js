@@ -218,5 +218,6 @@ function get_hint() {
   }
 }
 
+navigator.geolocation.getCurrentPosition(successFunc, errorFunc, optionObj);
 // 定期的にユーザの位置情報を取得　idには登録されたハンドラを識別するIDが入る
 watch_id = navigator.geolocation.watchPosition(successFunc, errorFunc, optionObj);
